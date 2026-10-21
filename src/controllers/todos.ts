@@ -9,8 +9,18 @@ export const createTodo = (req: Request, res: Response, next: NextFunction) => {
     const newTodo = new Todo(Math.random().toString(), task);
     todos.push(newTodo);
     res.status(201).json({
-      message: 'Creeated new todo',
+      message: 'Created new todo',
       createdTask: newTodo,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getTodos = (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.status(201).json({
+      tasks: todos,
     });
   } catch (error) {
     console.log(error);

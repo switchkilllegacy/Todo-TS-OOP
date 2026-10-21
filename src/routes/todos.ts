@@ -1,12 +1,10 @@
 import { Router } from 'express';
-import { createTodo } from '../controllers/todos.js';
+import { createTodo, getTodos } from '../controllers/todos.js';
 
 const router = Router();
 
 router.post('/', createTodo);
-router.get('/', (req, res) => {
-  res.send('OK');
-});
+router.get('/', getTodos);
 router.patch('/:id', (req, res) => {
   res.send('OK');
 });
